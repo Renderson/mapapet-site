@@ -1,13 +1,12 @@
 /**
- * Links compartilhados: https://renderson.github.io/mapapet-site/post/{postId}
+ * Links compartilhados:
+ *   https://renderson.github.io/mapapet-site/post/{postId}
+ *   https://renderson.github.io/mapapet-site/evento/{partnerId}/{eventId}
  * O GitHub Pages não cria arquivos por URL; 404.html espelha index.html para carregar esta página.
  */
 
 const PLAY_STORE =
   "https://play.google.com/store/apps/details?id=com.mapapet.app"
-
-const SITE_ORIGIN = "https://renderson.github.io"
-const POST_PATH_PREFIX = "/mapapet-site/post/"
 
 function getPostIdFromLocation() {
   const path = window.location.pathname
@@ -19,20 +18,33 @@ const postId =
   getPostIdFromLocation() ||
   new URLSearchParams(window.location.search).get("id")
 
-function publicPostUrl(id) {
-  return `${SITE_ORIGIN}${POST_PATH_PREFIX}${encodeURIComponent(id)}`
+function getEventPathFromLocation() {
+  const match = window.location.pathname.match(/\/evento\/([^/?#]+)\/([^/?#]+)\/?$/)
+  return match ? `evento/${match[1]}/${match[2]}` : null
+}
+
+const eventPath = getEventPathFromLocation()
+
+/** Caminho (sem o prefixo do site) que o app reconhece como deep link. */
+const appPath = eventPath || (postId ? `post/${encodeURIComponent(postId)}` : null)
+
+function showEventTexts() {
+  document.title = "Evento no MapaPet"
+  document.getElementById("petName").textContent = "Evento no MapaPet"
+  document.getElementById("petLocation").textContent = "📍 Feira, mutirão ou evento perto de você"
+  document.getElementById("petDescription").textContent =
+    "Veja data, local e os pets participantes no aplicativo ❤️"
 }
 
 /**
  * Abre o MapaPet via intent (Chrome Android) usando o mesmo URL https dos App Links.
  */
 function openApp() {
-  if (!postId) return
-  const httpsUrl = publicPostUrl(postId)
+  if (!appPath) return
   const fallback = encodeURIComponent(PLAY_STORE)
   const intentUrl =
-    "intent://renderson.github.io/mapapet-site/post/" +
-    encodeURIComponent(postId) +
+    "intent://renderson.github.io/mapapet-site/" +
+    appPath +
     "#Intent;scheme=https;package=com.mapapet.app;S.browser_fallback_url=" +
     fallback +
     ";end"
@@ -44,7 +56,8 @@ function openStore() {
 }
 
 window.onload = function () {
-  if (!postId) return
+  if (eventPath) showEventTexts()
+  if (!appPath) return
 
   setTimeout(() => {
     openApp()
