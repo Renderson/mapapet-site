@@ -28,14 +28,6 @@ const eventPath = getEventPathFromLocation()
 /** Caminho (sem o prefixo do site) que o app reconhece como deep link. */
 const appPath = eventPath || (postId ? `post/${encodeURIComponent(postId)}` : null)
 
-function showEventTexts() {
-  document.title = "Evento no MapaPet"
-  document.getElementById("petName").textContent = "Evento no MapaPet"
-  document.getElementById("petLocation").textContent = "📍 Feira, mutirão ou evento perto de você"
-  document.getElementById("petDescription").textContent =
-    "Veja data, local e os pets participantes no aplicativo ❤️"
-}
-
 /**
  * Abre o MapaPet via intent (Chrome Android) usando o mesmo URL https dos App Links.
  */
@@ -56,7 +48,6 @@ function openStore() {
 }
 
 window.onload = function () {
-  if (eventPath) showEventTexts()
   if (!appPath) return
 
   setTimeout(() => {
