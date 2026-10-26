@@ -13,12 +13,14 @@
         <div class="content">
             <p class="brand">MapaPet</p>
             <h1>Política de privacidade</h1>
-            <p class="muted">Última atualização: 15 de outubro de 2026</p>
+            <p class="muted">Última atualização: 26 de outubro de 2026</p>
             <p>
                 Esta política descreve como o aplicativo <strong>MapaPet</strong>
-                (<code>com.mapapet.app</code>) trata dados pessoais.
+                (<code>com.mapapet.app</code>) e as páginas de links compartilhados em
+                <code>mapapet.app</code> tratam dados pessoais.
                 O MapaPet ajuda pessoas e organizações a publicar e encontrar
-                animais para adoção ou perdidos em um mapa.
+                animais para adoção ou perdidos em um mapa, e a divulgar eventos
+                de adoção, castração e vacinação.
             </p>
             <p>
                 Ao usar o app, você concorda com esta política e com os
@@ -65,12 +67,53 @@
                 <li>Status da assinatura Partner Plus (Google Play Billing)</li>
             </ul>
 
+            <h2>Eventos de parceiros</h2>
+            <p>Parceiros com o plano Plus podem publicar eventos. Para cada evento guardamos:</p>
+            <ul>
+                <li>Nome, tipo (feira de adoção, castração, vacinação, bazar ou outro), datas, horários e descrição</li>
+                <li>Nome do local, endereço e localização no mapa</li>
+                <li>Foto de capa, se enviada</li>
+                <li>Pets participantes escolhidos entre os anúncios do parceiro</li>
+                <li>WhatsApp de contato do evento, se diferente do da organização</li>
+            </ul>
+
+            <h2>Avisos de eventos próximos (opcional)</h2>
+            <p>
+                Se você aceitar os avisos, guardamos o identificador de notificação
+                do aparelho (Firebase Cloud Messaging) e uma <strong>região aproximada</strong>,
+                arredondada para cerca de 5 km, para avisar sobre eventos publicados
+                a até 100 km. Esse registro é do aparelho e <strong>não é ligado à sua conta</strong>.
+                Ao desligar os avisos nas Configurações, ele é apagado dos nossos servidores.
+                No Android 13 ou mais recente, o app também pede a permissão de notificações.
+            </p>
+
+            <h2>Uso do app e diagnóstico</h2>
+            <ul>
+                <li>
+                    <strong>Uso do app (Mixpanel):</strong> registramos ações como criar conta,
+                    publicar ou excluir um anúncio, abrir o detalhe de um pet, tocar no WhatsApp,
+                    assinar o Plus, publicar um evento e telas de erro exibidas. Cada registro
+                    leva identificadores técnicos (como o do anúncio ou do evento), o tipo de
+                    build e a plataforma. Depois do login, os registros são associados ao UID
+                    da conta, e o perfil de uso guarda nome, e-mail e, se for o caso, os dados
+                    do parceiro (nome e plano). Nome e e-mail não são enviados junto com cada ação.
+                </li>
+                <li>
+                    <strong>Falhas (Firebase Crashlytics):</strong> quando o app trava,
+                    enviamos um relatório técnico com o modelo do aparelho, a versão do
+                    Android e do app e o ponto do código em que ocorreu a falha.
+                </li>
+            </ul>
+            <p>Usamos esses dados para entender o uso do app e corrigir problemas, não para publicidade.</p>
+
             <h2>Localização do dispositivo</h2>
             <p>
                 Com sua permissão (GPS), usamos a localização para centralizar o mapa,
-                buscar animais e parceiros no raio escolhido e, se você quiser,
-                posicionar um novo post. Sem a permissão, o mapa continua utilizável
-                com uma região padrão.
+                buscar animais, parceiros e eventos no raio escolhido, mostrar a distância
+                até eles e, se você quiser, posicionar um novo post. A localização exata
+                não é enviada ao nosso servidor, exceto quando você a usa para posicionar
+                um anúncio, ou como região aproximada nos avisos de eventos (acima).
+                Sem a permissão, o mapa continua utilizável com uma região padrão.
             </p>
 
             <h2>No aparelho</h2>
@@ -78,31 +121,42 @@
                 <li>Tema (claro, escuro ou sistema)</li>
                 <li>Raio de busca no mapa</li>
                 <li>Buscas recentes</li>
+                <li>Sua escolha sobre os avisos de eventos</li>
             </ul>
             <p>Esses dados ficam no dispositivo e não são enviados ao nosso servidor.</p>
 
             <h2>3. Para que usamos os dados</h2>
             <ul>
                 <li>Autenticar a conta e mostrar o perfil</li>
-                <li>Publicar, editar e exibir anúncios e páginas de parceiros no mapa</li>
+                <li>Publicar, editar e exibir anúncios, páginas de parceiros e eventos no mapa</li>
                 <li>Permitir contato (telefone ou WhatsApp) entre interessados e anunciantes</li>
-                <li>Compartilhar um post por link público</li>
+                <li>Gerar links públicos para compartilhar um pet, um evento ou uma organização</li>
+                <li>Avisar sobre eventos próximos, se você aceitar</li>
                 <li>Processar a assinatura Partner Plus pela Google Play</li>
+                <li>Medir o uso do app e corrigir falhas</li>
                 <li>Excluir a conta e os dados quando você solicitar</li>
             </ul>
             <p>Não vendemos dados pessoais e não usamos os dados para anúncios de terceiros.</p>
 
             <h2>4. Quem pode ver as informações</h2>
             <ul>
-                <li>Posts de animais e perfis públicos de parceiros ativos são visíveis a qualquer pessoa no app (e, no caso de links compartilhados, na página web do post)</li>
-                <li>Telefone/WhatsApp do anúncio ou da organização ficam visíveis para quem abre o detalhe, para permitir o contato</li>
-                <li>Seu e-mail de login não é exibido no mapa para outros usuários</li>
+                <li>Posts de animais, perfis públicos de parceiros ativos e eventos publicados são visíveis a qualquer pessoa no app</li>
+                <li>
+                    Os links compartilhados abrem uma página pública em <code>mapapet.app</code>
+                    com o nome, a descrição e a foto do pet, os dados do evento (data, horário,
+                    local e capa) ou o nome, a descrição, a cidade e o logo da organização.
+                    Esses dados também aparecem na prévia do link em apps de mensagem,
+                    como o WhatsApp. A página não mostra telefone nem WhatsApp
+                </li>
+                <li>Telefone/WhatsApp do anúncio, da organização ou do evento ficam visíveis no app para quem abre o detalhe, para permitir o contato</li>
+                <li>Seu e-mail de login não é exibido para outros usuários</li>
             </ul>
 
             <h2>5. Serviços de terceiros</h2>
             <p>O MapaPet usa:</p>
             <ul>
-                <li><strong>Firebase</strong> (Google): Authentication, Firestore, Storage e Cloud Functions, para conta, dados e fotos</li>
+                <li><strong>Firebase</strong> (Google): Authentication, Firestore, Storage, Cloud Functions, Hosting, Cloud Messaging, Remote Config e Crashlytics, para conta, dados, fotos, páginas de links, notificações, configurações do app e relatórios de falha</li>
+                <li><strong>Mixpanel</strong>: medição do uso do app</li>
                 <li><strong>Google Maps</strong>: mapa e localização</li>
                 <li><strong>Google Play Billing</strong>: assinatura Partner Plus</li>
                 <li><strong>WhatsApp</strong>: só se você tocar em entrar em contato; o app abre o WhatsApp no seu aparelho</li>
@@ -114,21 +168,38 @@
             <ul>
                 <li><a href="https://policies.google.com/privacy" rel="noopener noreferrer">Política de privacidade do Google</a></li>
                 <li><a href="https://firebase.google.com/support/privacy" rel="noopener noreferrer">Privacidade do Firebase</a></li>
+                <li><a href="https://mixpanel.com/legal/privacy-policy/" rel="noopener noreferrer">Política de privacidade do Mixpanel</a></li>
             </ul>
 
             <h2>6. Onde os dados ficam</h2>
             <p>
-                Conta, posts, fotos e dados de parceiro são armazenados na infraestrutura
+                Conta, posts, eventos, fotos e dados de parceiro são armazenados na infraestrutura
                 do Google Firebase. O processamento das Cloud Functions do MapaPet
                 ocorre na região <code>southamerica-east1</code> (São Paulo),
                 mas o Google pode replicar dados em outras regiões para operação e segurança.
             </p>
+            <p>
+                Os dados de uso enviados ao Mixpanel e os relatórios de falha do Crashlytics
+                podem ser armazenados fora do Brasil, inclusive nos Estados Unidos,
+                pelos próprios provedores, que seguem as próprias garantias de proteção de dados.
+            </p>
 
             <h2>7. Por quanto tempo guardamos</h2>
             <p>
-                Mantemos os dados enquanto a conta existir ou o post/parceiro permanecer publicado.
+                Mantemos os dados enquanto a conta existir ou o post, o parceiro ou o evento
+                permanecer publicado. Um evento deixa de aparecer à meia-noite do dia em que
+                termina; o registro fica até o parceiro apagá-lo ou excluir a conta.
+            </p>
+            <p>
+                O registro dos avisos de eventos fica até você desligar os avisos ou até o
+                identificador de notificação deixar de valer (por exemplo, ao desinstalar o app).
                 Preferências locais ficam no aparelho até você limpar os dados do app
                 ou desinstalá-lo.
+            </p>
+            <p>
+                Os dados de uso no Mixpanel e os relatórios de falha seguem os prazos de
+                retenção desses provedores. Você pode pedir a exclusão dos seus dados de uso
+                pelo e-mail de contato.
             </p>
             <p>
                 Recibos de compra da Google Play seguem as regras da loja, mesmo após
@@ -138,9 +209,11 @@
             <h2>8. Seus direitos</h2>
             <p>Você pode:</p>
             <ul>
-                <li>Acessar e atualizar perfil, posts e dados de parceiro no próprio app</li>
-                <li>Revogar a permissão de localização nas configurações do Android</li>
+                <li>Acessar e atualizar perfil, posts, eventos e dados de parceiro no próprio app</li>
+                <li>Revogar a permissão de localização ou de notificações nas configurações do Android</li>
+                <li>Desligar os avisos de eventos nas Configurações do app</li>
                 <li>Excluir a conta e os dados associados, no app ou pelo pedido na web</li>
+                <li>Pedir acesso, correção ou exclusão de dados (inclusive os de uso no Mixpanel) pelo e-mail de contato</li>
             </ul>
             <p>
                 Instruções completas:
