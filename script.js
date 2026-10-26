@@ -47,14 +47,10 @@ function openStore() {
   window.location.href = PLAY_STORE
 }
 
+// Links antigos: a página agora mora no Firebase Hosting, com os dados do pet ou do evento.
+const NEW_SITE = "https://mapapet.app/"
+
 window.onload = function () {
   if (!appPath) return
-
-  setTimeout(() => {
-    openApp()
-  }, 500)
-
-  setTimeout(() => {
-    window.location.href = PLAY_STORE
-  }, 2500)
+  window.location.replace(NEW_SITE + appPath)
 }
